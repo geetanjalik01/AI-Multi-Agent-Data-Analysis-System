@@ -1,0 +1,7 @@
+uploads/.gitkeep
+
+outputs/cleaned_data/.gitkeep
+outputs/models/.gitkeep
+outputs/plots/.gitkeep
+outputs/dashboard/.gitkeep
+outputs/reports/.gitkeep

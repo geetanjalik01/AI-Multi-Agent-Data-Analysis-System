@@ -1,0 +1,16 @@
+{
+  "llm": {
+    "provider": "openai",
+    "model_name": "gpt-4o",
+    "temperature": 0.3
+  },
+  "data": {
+    "input_dir": "uploads/",
+    "output_dir": "outputs/",
+    "allowed_extensions": [".csv", ".xlsx"]
+  },
+  "agents": {
+    "max_iterations": 10,
+    "max_tokens": 4096
+  }
+}
