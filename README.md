@@ -1,4 +1,6 @@
-# AI Multi-Agent Data Analysis System
+# InsightFlow AI
+### Multi-Agent Business Intelligence & Data Analysis System
+Transform raw datasets into actionable business insights using autonomous AI agents.
 
 An AI-powered Multi-Agent Data Analysis Platform built using Streamlit, CrewAI, LangGraph, Machine Learning, Business Intelligence, RAG, and PostgreSQL.
 
