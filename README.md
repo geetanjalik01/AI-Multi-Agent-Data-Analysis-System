@@ -1,419 +1,172 @@
-# InsightFlow AI
-### Multi-Agent Business Intelligence & Data Analysis System
-Transform raw datasets into actionable business insights using autonomous AI agents.
+#  AI Multi-Agent Data Analysis System
 
-An AI-powered Multi-Agent Data Analysis Platform built using Streamlit, CrewAI, LangGraph, Machine Learning, Business Intelligence, RAG, and PostgreSQL.
+An AI-powered end-to-end data analysis platform that automates data cleaning, exploratory data analysis (EDA), visualization, machine learning, report generation, and semantic report search.
 
-The platform automatically performs data cleaning, exploratory data analysis (EDA), visualization, machine learning model training, business dashboard generation, report generation, and knowledge retrieval through an intelligent multi-agent workflow.
+Built using **Python**, **Streamlit**, **Scikit-learn**, **LangGraph**, **CrewAI**, **PostgreSQL**, and **ChromaDB**.
 
-## Innovation
-
-Unlike traditional analytics tools,
-InsightFlow AI employs multiple autonomous AI agents
-that collaborate to complete the entire analytics
-workflow without manual intervention.
-
-Each agent specializes in one task while the
-Supervisor Agent intelligently coordinates
-the workflow.
 ---
- ## Why InsightFlow AI?
- End-to-End AI Automation
- Multi-Agent Collaboration
- Zero-Code Analytics
- Intelligent Business Reporting
- Interactive Dashboards
- Predictive Analytics
- 
+
+## Overview
+
+Analyzing datasets usually involves multiple manual steps such as cleaning data, performing exploratory analysis, generating visualizations, training machine learning models, and preparing reports.
+
+This project automates the complete workflow. Users simply upload a CSV dataset, and the system generates meaningful insights, visualizations, machine learning predictions, and a business report automatically.
+
+---
+
 ## Features
 
-### Automated Data Cleaning
-
-* Missing value handling
-* Duplicate removal
-* Data type correction
-* Outlier detection
-* Cleaning report generation
-
-### Exploratory Data Analysis (EDA)
-
-* Dataset profiling
-* Statistical summary
-* Correlation analysis
-* Missing value analysis
-* Feature distribution analysis
-
-### Automated Visualizations
-
-* Histograms
-* Boxplots
-* Correlation Heatmaps
-* Scatter Plots
-* Distribution Charts
-
-### Machine Learning Module
-
-* Classification Models
-* Regression Models
-* Automatic Target Selection
-* Best Model Selection
-* Model Performance Evaluation
-* Model Serialization (.pkl)
-
-### Business Intelligence Dashboard
-
-* KPI Cards
-* Revenue Analysis
-* Profit Analysis
-* Sales Trends
-* Category Performance
-* Top Customers
-* Top Products
-* Regional Analysis
-
-### AI Report Generation
-
-* Cleaning Report
-* EDA Report
-* Model Report
-* Dashboard Report
-* Executive Summary Report
-
-### Retrieval-Augmented Generation (RAG)
-
-* Dataset Knowledge Base
-* Semantic Search
-* Business Question Answering
-* Vector Embedding Storage
-
-### Database Integration
-
-* PostgreSQL Support
-* Analysis History Tracking
-* Workflow Logging
-* Report Storage
+-  Upload CSV datasets through a Streamlit interface
+-  Automatic data cleaning
+  - Remove duplicate records
+  - Handle missing values
+  - Standardize column names
+-  Exploratory Data Analysis (EDA)
+  - Dataset summary
+  - Descriptive statistics
+  - Correlation analysis
+-  Automatic visualizations
+  - Histograms
+  - Correlation Heatmaps
+-  Machine Learning
+  - Automatic Classification/Regression detection
+  - Decision Tree
+  - Random Forest
+  - Performance evaluation
+-  Automatic PDF report generation
+-  Store analysis history using PostgreSQL
+-  Semantic report search using ChromaDB + Sentence Transformers
+-  Modular AI Agent architecture using CrewAI
+-  Workflow organization using LangGraph
 
 ---
 
-# System Architecture
+#  Workflow
 
-Dataset Upload
-
-↓
-
-Cleaning Agent
-
-↓
-
-EDA Agent
-
-↓
-
-Visualization Agent
-
-↓
-
-Machine Learning Agent
-
-↓
-
-Dashboard Agent
-
-↓
-
-Report Agent
-
-↓
-
-RAG Knowledge Agent
-
-↓
-
-Executive Summary
+1. User uploads a CSV dataset.
+2. Dataset is cleaned automatically.
+3. Exploratory Data Analysis is performed.
+4. Visualizations are generated.
+5. ML module detects Classification or Regression automatically.
+6. Decision Tree and Random Forest models are trained.
+7. Best model performance is displayed.
+8. PDF business report is generated.
+9. Analysis history is stored in PostgreSQL.
+10. Report embeddings are stored in ChromaDB for semantic retrieval.
 
 ---
 
-# Tech Stack
+#  AI Components
 
-### Frontend
+## CrewAI
 
-* Streamlit
+Specialized AI agents were defined for:
 
-### AI Frameworks
+- Supervisor Agent
+- Cleaning Agent
+- EDA Agent
+- Visualization Agent
+- Machine Learning Agent
+- Report Generation Agent
 
-* CrewAI
-* LangGraph
+These agents use **Llama 3.3 70B** through the **Groq API** for reasoning and modular workflow design.
+
+> **Note:** In the current implementation, the data processing pipeline is executed through Python modules, while CrewAI defines the modular multi-agent architecture.
+
+---
+
+## LangGraph
+
+LangGraph is used to organize the workflow by passing a shared workflow state between different modules.
+
+---
+
+## RAG Pipeline
+
+Generated reports are:
+
+- Converted into embeddings using Sentence Transformers
+- Stored in ChromaDB
+- Retrieved using semantic similarity search
+
+---
+
+#  Tech Stack
+
+### Languages
+
+- Python
+
+### Data Analysis
+
+- Pandas
+- NumPy
 
 ### Machine Learning
 
-* Scikit-Learn
-* Pandas
-* NumPy
+- Scikit-learn
+- Decision Tree
+- Random Forest
 
 ### Visualization
 
-* Plotly
-* Matplotlib
-* Seaborn
+- Matplotlib
+- Seaborn
+
+### Frontend
+
+- Streamlit
+
+### AI Frameworks
+
+- CrewAI
+- LangGraph
+
+### LLM
+
+- Llama 3.3 70B (Groq API)
 
 ### Database
 
-* PostgreSQL
-* SQLAlchemy
+- PostgreSQL
+- SQLAlchemy
 
-### RAG
+### Vector Database
 
-* Sentence Transformers
-* ChromaDB
+- ChromaDB
 
-### Reporting
+### Embeddings
 
-* ReportLab
-* JSON Reports
+- Sentence Transformers
 
 ---
 
-# Project Structure
-
-AI_Multi_Agent_Data_Analysis_System/
-
-├── app.py
-
-├── requirements.txt
-
-├── README.md
-
-├── .env
-
-│
-
-├── tools/
-
-│ ├── cleaning_tools.py
-
-│ ├── eda_tools.py
-
-│ ├── visualization_tools.py
-
-│ ├── model_tools.py
-
-│ ├── dashboard_tools.py
-
-│ ├── report_tools.py
-
-│ ├── database_tools.py
-
-│ └── rag_store.py
-
-│
-
-├── workflows/
-
-│ ├── crew_pipeline.py
-
-│ └── langgraph_pipeline.py
-
-│
-
-├── state/
-
-│ └── workflow_state.py
-
-│
-
-├── utils/
-
-│ ├── config_loader.py
-
-│ ├── db_manager.py
-
-│ └── sandbox_executor.py
-
-│
-
-├── database/
-
-│ ├── database.py
-
-│ ├── db_models.py
-
-│ ├── db_logger.py
-
-│ ├── create_tables.py
-
-│ └── schema.sql
-
-│
-
-├── uploads/
-
-│
-
-├── outputs/
-
-│ ├── cleaned_data/
-
-│ ├── reports/
-
-│ ├── plots/
-
-│ ├── dashboard/
-
-│ ├── models/
-
-│ └── logs/
-
-│
-
-└── docs/
-
----
-
-# Installation
-
-## Clone Repository
-
-git clone https://github.com/geetanjalik01/AI-Multi-Agent-Data-Analysis-System.git
-
-cd AI-Multi-Agent-Data-Analysis-System
-
----
-
-## Create Virtual Environment
-
-Windows
-
-python -m venv agent_env
-
-agent_env\Scripts\activate
-
-Linux / Mac
-
-python3 -m venv agent_env
-
-source agent_env/bin/activate
-
----
-
-## Install Dependencies
-
-pip install -r requirements.txt
-
----
-
-## Configure Environment Variables
-
-Create a .env file
-
-OPENAI_API_KEY=your_api_key
-
-DATABASE_URL=postgresql://username:password@localhost/database
-
----
-
-# Run Application
-
-streamlit run app.py
-
-Open:
-
-http://localhost:8501
-
----
-
-# Workflow
-
-1. Upload Dataset
-
-2. Data Cleaning Agent
-
-   * Removes duplicates
-   * Handles missing values
-
-3. EDA Agent
-
-   * Statistical analysis
-   * Correlation analysis
-
-4. Visualization Agent
-
-   * Generates charts
-   * Saves plots
-
-5. Machine Learning Agent
-
-   * Trains multiple models
-   * Selects best model
-
-6. Dashboard Agent
-
-   * Generates business KPIs
-   * Creates dashboard insights
-
-7. Report Agent
-
-   * Creates executive reports
-
-8. RAG Agent
-
-   * Stores knowledge embeddings
-   * Enables question answering
-
----
-
-# Generated Outputs
-
+#  Project Structure
+
+```
+app.py
+agents/
+tools/
+database/
+rag/
+reports/
 outputs/
-
-├── cleaned_data/
-
-├── reports/
-
-│ ├── cleaning_report.json
-
-│ ├── eda_report.json
-
-│ ├── model_report.json
-
-│ ├── dashboard_report.json
-
-│ └── executive_report.pdf
-
-│
-
-├── models/
-
-│ ├── best_model.pkl
-
-│ └── model_metrics.json
-
-│
-
-├── plots/
-
-│ ├── histogram.png
-
-│ ├── boxplot.png
-
-│ └── heatmap.png
-
-│
-
-└── dashboard/
-
-├── dashboard_summary.json
-
-└── dashboard_data.csv
+uploads/
+```
 
 ---
 
-# Future Enhancements
+# Future Improvements
 
-* Multi-dataset analysis
-* Real-time dashboard monitoring
-* LLM-powered data storytelling
-* Predictive business forecasting
-* Automated Power BI report export
-* Cloud deployment on AWS/Azure
+- Interactive Plotly dashboards
+- Hyperparameter tuning
+- Additional ML algorithms (XGBoost, LightGBM)
+- Multi-file support (Excel, JSON)
+- Cloud deployment (AWS/Azure)
+- Full CrewAI execution pipeline
 
 ---
+
+B.Tech Information Technology | NIT Raipur
+
+Interested in Data Analytics, Machine Learning, AI, and Multi-Agent Systems.
